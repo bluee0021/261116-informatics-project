@@ -1,10 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-a = input('함수를 입력하세요')
+a = input('함수를 입력해주세요 : ') #원하는 함수를 입력 받음 
 
-x_min = input('하한')
-x_max = input('상한')
+x_min = input('x 하한 : ') # 격자점을 구하고 싶은 범위를 설정
+x_max = input('x 상한 : ') # 격자점을 구하고 싶은 범위를 설정
+
+y_min = input('y 하한 : ') # 격자점을 구하고 싶은 범위를 설정
+y_max = input('y 상한 : ') # 격자점을 구하고 싶은 범위를 설정
+
 
 dot_x = []
 dot_y = []
@@ -30,8 +34,10 @@ for i in ar1_x :
             dot_y.append(j)
 cnt = 0
 for k in dot_x :
-    plt.scatter(k, dot_y[cnt], color = 'r')
-    cnt = cnt + 1
+    if dot_y[cnt] >= int(y_min) and int(y_max) >= dot_y[cnt] :
+        plt.scatter(k, dot_y[cnt], color = 'r')
+        cnt = cnt + 1
+    
 plt.plot(ar1_x,ar1_y)
 plt.show()
-print(cnt)
+print("격자점의 개수는", cnt, "입니다. 화이팅!!!")
